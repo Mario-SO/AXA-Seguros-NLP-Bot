@@ -1,26 +1,3 @@
-/*
- * Copyright (c) AXA Shared Services Spain S.A.
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
 const fs = require('fs');
 
 module.exports = async function trainnlp(manager, say) {
@@ -43,8 +20,24 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('es', 'la moto no arranca', 'accidents');
   manager.addDocument('es', 'he recibido un golpe', 'accidents');
   manager.addDocument('es', 'me he golpeado en el coche', 'accidents');
+  manager.addDocument('es', 'he tenido un problema con mi coche', 'accidents'); 
+  manager.addDocument('es', 'he tenido un problema con mi moto', 'accidents');
+  manager.addDocument('es', 'me he caido en moto', 'accidents');
+  manager.addDocument('es', 'me he caido en coche', 'accidents');
+  manager.addDocument('es', 'mi vehivulo ha tenido un accidente', 'accidents');
+  manager.addDocument('es', 'mi coche ha tenido un accidente', 'accidents');
+  manager.addDocument('es', 'se han chocado conmigo', 'accidents');
+  manager.addDocument('es', 'mi moto se ha hecho trizas', 'accidents');
+  manager.addDocument('es', 'mi coche se ha hecho trizas', 'accidents');
+  manager.addDocument('es', 'me he golpeado en el coche', 'accidents');
+  manager.addDocument('es', 'ayuda, he tenido un problema', 'accidents');
+  manager.addDocument('es', 'ayuda, me he chocado', 'accidents');
+  manager.addDocument('es', 'ayuda, me he caido con la moto', 'accidents');
+
+  manager.addAnswer('es', 'accidents', 'JO que faena la verdad, vamos a ver que podemos hacer');
+  manager.addAnswer('es', 'accidents', 'Jopetas eso es un problema. Danos tus datos y nosotros nos encargamos');
+  manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario y NO SE MUEVA:');
   
-  manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario:');
   
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');
