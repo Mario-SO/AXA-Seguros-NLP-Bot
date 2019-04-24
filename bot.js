@@ -86,16 +86,41 @@ class AdaptiveCardsBot {
 						attachments: [CardFactory.adaptiveCard(AccidentsCard)]
 					});
 				}
-				else if (result.intent === 'seguro') {
+				if (result.intent === 'seguro') {
 					await context.sendActivity({
 						text: answer,
 						attachments: [CardFactory.adaptiveCard(InsuranceCard)]
 					});
 				}
-				else {
+				else if (result.intent === 'accidents2') {
 					await context.sendActivity({
-						text: answer
+						text: answer,
+						attachments: [CardFactory.adaptiveCard(InsuranceCard2)]
 					});
+				}
+				else {
+					const result = await nlpManager.process(context.activity.text);
+					const answer = result.score > threshold && result.answer ? result.answer : "Lo siento muchisimo pero no he entendido nada";
+
+					console.log(result, result.answer, answer);
+
+					if (result.intent === 'accidents') {
+						await context.sendActivity({
+							text: answer,
+							attachments: [CardFactory.adaptiveCard(AccidentsCard)]
+						});
+					}
+					else if (result.intent === 'seguro') {
+						await context.sendActivity({
+							text: answer,
+							attachments: [CardFactory.adaptiveCard(InsuranceCard)]
+						});
+					}
+					else {
+						await context.sendActivity({
+							text: answer
+						});
+					}
 				}
 				/*
 				else if(answer === 'section1') {
