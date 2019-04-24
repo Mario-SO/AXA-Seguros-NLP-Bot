@@ -11,6 +11,7 @@ const RestaurantCard = require('./resources/RestaurantCard.json');
 const SolitaireCard = require('./resources/SolitaireCard.json');
 const AccidentsCard = require('./resources/Siniestro.json');
 const InsuranceCard = require('./resources/CreacionSeguro.json');
+const InsuranceCard2 = require('./resources/CreacionSeguro2.json');
 
 // Create array of AdaptiveCard content, this will be used to send a random card to the user.
 const CARDS = [
@@ -19,8 +20,9 @@ const CARDS = [
     LargeWeatherCard,
     RestaurantCard,
     SolitaireCard,
-		AccidentsCard,
-		InsuranceCard
+	AccidentsCard,
+	InsuranceCard,
+	InsuranceCard2
 ];
 
 const { NlpManager } = require('node-nlp');
@@ -54,13 +56,19 @@ class AdaptiveCardsBot {
 			if (context.activity.text === undefined) {
 				console.log(context.activity.value);
 				if (context.activity.value.x === 0) {
-				    let buffer = 'Confirmamos sus datos:\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nNumero Afectados:'+ context.activity.value.NumeroAfectados +'\r\nLugar:'+ context.activity.value.Lugar +'\r\n  Gracias por confiar en nosotros.';
+				    let buffer = 'Confirmamos sus datos:\r\n\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nNumero Afectados:'+ context.activity.value.NumeroAfectados +'\r\nLugar:'+ context.activity.value.Lugar +'\r\n\r\nGracias por confiar en nosotros.';
 				    await context.sendActivity({
 					    text: buffer
 				    });
 				}
 				else if (context.activity.value.x === 1) {
-				    let buffer = 'Confirmamos sus datos:\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nMatrícula:'+ context.activity.value.Matrícula +'\r\nModelo:'+ context.activity.value.Modelo +'\r\nFecha:'+ context.activity.value.Fecha +'\r\n  Gracias por confiar en nosotros.';
+				    let buffer = 'Confirmamos sus datos:\r\n\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nMatrícula:'+ context.activity.value.Matrícula +'\r\nModelo:'+ context.activity.value.Modelo +'\r\nFecha:'+ context.activity.value.Fecha +'\r\n\r\nGracias por confiar en nosotros.';
+				    await context.sendActivity({
+					    text: buffer
+				    });
+				}
+				else if (context.activity.value.x === 2) {
+				    let buffer = 'We confirm your data:\r\n\r\nName: '+ context.activity.value.Nombre +'\r\nSurname:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nPlate:'+ context.activity.value.Matrícula +'\r\nBrand:'+ context.activity.value.Modelo +'\r\nDate:'+ context.activity.value.Fecha +'\r\n\r\nThank you for trusting us.';
 				    await context.sendActivity({
 					    text: buffer
 				    });
@@ -109,7 +117,7 @@ class AdaptiveCardsBot {
 				//attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
 			}
         } else {
-            await context.sendActivity(`[${ context.activity.type } event detected]`);
+            await context.sendActivity(`Muy buenas, ¿qué desea?`);
         }
     }
 }
