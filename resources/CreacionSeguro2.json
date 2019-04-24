@@ -1,0 +1,82 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Form's insurance creation: ",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Name and Surname: ",
+      "separator": true
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "width": 1,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Nombre",
+              "placeholder": "Name",
+              "size": "large"
+            }
+          ]
+        },
+        {
+          "width": 2,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Apellidos",
+              "placeholder": "Surname",
+              "size": "large"
+            }
+            ]
+        }
+        ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce you ID card: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "DNI",
+      "placeholder": "ID card"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce your vehicle's plate: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Matrícula",
+      "placeholder": "Plate"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce your car model and brand: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Modelo",
+      "placeholder": "Model and brand"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce your license date: "
+    },
+    {
+      "type": "Input.Date",
+      "id": "Date"
+    }
+  ]
+}
