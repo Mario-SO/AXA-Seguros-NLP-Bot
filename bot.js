@@ -42,7 +42,7 @@ class AdaptiveCardsBot {
      * request and response, with no stateful conversation.
      * @param turnContext A TurnContext instance containing all the data needed for processing this conversation turn.
      */
-	 
+
     async onTurn(context) {
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         if (context.activity.type === 'message') {
@@ -52,13 +52,12 @@ class AdaptiveCardsBot {
 			const answer = result.score > threshold && result.answer ? result.answer : "Sorry, I don't understand";
 
 			console.log(result, result.answer, answer);
-
             
 			// const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
             await context.sendActivity({
                 text: answer
             });
-
+			//attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
         } else {
             await context.sendActivity(`[${ context.activity.type } event detected]`);
         }
