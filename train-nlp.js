@@ -20,21 +20,6 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('es', 'la moto no arranca', 'accidents');
   manager.addDocument('es', 'he recibido un golpe', 'accidents');
   manager.addDocument('es', 'me he golpeado en el coche', 'accidents');
-
-  manager.addDocument('es', 'me he chocado con el coche', 'accidents');
-
-  manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario:');
-
-  manager.addDocument('es', 'quiero contratar un seguro de un vehículo', 'seguro');
-  manager.addDocument('es', 'me he comprado un coche', 'seguro');
-  manager.addDocument('es', 'me he comprado una moto', 'seguro');
-  manager.addDocument('es', 'darme de alta con el coche', 'seguro');
-  manager.addDocument('es', 'crear nuevo seguro de vehículo', 'seguro');
-  manager.addDocument('es', 'quiero un seguro de coche', 'seguro');
-  
-  manager.addAnswer('es', 'seguro', 'Vamos a gestionar su nuevo seguro de vehículo, por favor, rellene el siguiente formulario:');
-
-
   manager.addDocument('es', 'he tenido un problema con mi coche', 'accidents'); 
   manager.addDocument('es', 'he tenido un problema con mi moto', 'accidents');
   manager.addDocument('es', 'me he caido en moto', 'accidents');
@@ -48,11 +33,32 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('es', 'ayuda, he tenido un problema', 'accidents');
   manager.addDocument('es', 'ayuda, me he chocado', 'accidents');
   manager.addDocument('es', 'ayuda, me he caido con la moto', 'accidents');
+  manager.addDocument('es', 'me he chocado con el coche', 'accidents');
 
   manager.addAnswer('es', 'accidents', 'JO que faena la verdad, vamos a ver que podemos hacer');
   manager.addAnswer('es', 'accidents', 'Jopetas eso es un problema. Danos tus datos y nosotros nos encargamos');
   manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario y NO SE MUEVA:');
+ 
+
+  manager.addDocument('es', 'quiero contratar un seguro de un vehículo', 'seguro');
+  manager.addDocument('es', 'me he comprado un coche', 'seguro');
+  manager.addDocument('es', 'me he comprado una moto', 'seguro');
+  manager.addDocument('es', 'darme de alta con el coche', 'seguro');
+  manager.addDocument('es', 'crear nuevo seguro de vehículo', 'seguro');
+  manager.addDocument('es', 'quiero un seguro de coche', 'seguro');
+  manager.addDocument('es', 'nuevo seguro de coche', 'seguro');
+  manager.addDocument('es', 'me gustaria un nuevo seguro de moto', 'seguro');
+  manager.addDocument('es', 'me gustaria un nuevo seguro', 'seguro');
+  manager.addDocument('es', 'nuevo seguro para mi vehiculo', 'seguro');
+  manager.addDocument('es', 'contratar seguro', 'seguro');
+  manager.addDocument('es', 'nueva poliza de moto', 'seguro');
+  manager.addDocument('es', 'nueva poliza para mi moto', 'seguro');
+  manager.addDocument('es', 'nueva poliza coche', 'seguro');
+  manager.addDocument('es', 'poliza nueva', 'seguro');
   
+  manager.addAnswer('es', 'seguro', 'Perfecto $$ vamos a $$ gestionar $$ su nuevo seguro');
+  manager.addAnswer('es', 'seguro', 'Muy bien, gracias por confiar en AXA :)');
+  manager.addAnswer('es', 'seguro', 'Muchas gracias. Estamos encantados de que confie en AXA-bot');
   
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');

@@ -19,8 +19,8 @@ const CARDS = [
     LargeWeatherCard,
     RestaurantCard,
     SolitaireCard,
-	AccidentsCard,
-	InsuranceCard
+		AccidentsCard,
+		InsuranceCard
 ];
 
 const { NlpManager } = require('node-nlp');
