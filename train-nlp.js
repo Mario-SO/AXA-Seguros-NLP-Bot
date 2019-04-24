@@ -43,8 +43,21 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('es', 'la moto no arranca', 'accidents');
   manager.addDocument('es', 'he recibido un golpe', 'accidents');
   manager.addDocument('es', 'me he golpeado en el coche', 'accidents');
-  
+  manager.addDocument('es', 'me he chocado con el coche', 'accidents');
+
   manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario:');
+
+  manager.addDocument('es', 'quiero contratar un seguro de un vehículo', 'seguro');
+  manager.addDocument('es', 'me he comprado un coche', 'seguro');
+  manager.addDocument('es', 'me he comprado una moto', 'seguro');
+  manager.addDocument('es', 'darme de alta con el coche', 'seguro');
+  manager.addDocument('es', 'crear nuevo seguro de vehículo', 'seguro');
+  manager.addDocument('es', 'quiero un seguro de coche', 'seguro');
+  
+  manager.addAnswer('es', 'seguro', 'Vamos a gestionar su nuevo seguro de vehículo, por favor, rellene el siguiente formulario:');
+
+
+  
   
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');
