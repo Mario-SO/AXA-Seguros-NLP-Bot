@@ -96,5 +96,14 @@
       "id": "Lugar",
       "placeholder": "Lugar del incidente"
     }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "ENVIAR",
+      "data": {
+        "x": 0
+      }
+    }
   ]
 }

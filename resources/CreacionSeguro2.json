@@ -5,13 +5,13 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Formulario para la creación de Seguros",
+      "text": "Form's insurance creation: ",
       "size": "large",
       "weight": "bolder"
     },
     {
       "type": "TextBlock",
-      "text": "Nombre y apellidos",
+      "text": "Name and Surname: ",
       "separator": true
     },
     {
@@ -24,7 +24,7 @@
             {
               "type": "Input.Text",
               "id": "Nombre",
-              "placeholder": "Nombre",
+              "placeholder": "Name",
               "size": "large"
             }
           ]
@@ -36,7 +36,7 @@
             {
               "type": "Input.Text",
               "id": "Apellidos",
-              "placeholder": "Apellidos",
+              "placeholder": "Surname",
               "size": "large"
             }
             ]
@@ -45,47 +45,38 @@
     },
     {
       "type": "TextBlock",
-      "text": "Introduce tu DNI: "
+      "text": "Introduce you ID card: "
     },
     {
       "type": "Input.Text",
       "id": "DNI",
-      "placeholder": "DNI"
+      "placeholder": "ID card"
     },
     {
       "type": "TextBlock",
-      "text": "Introduce tu matrícula: "
+      "text": "Introduce your vehicle's plate: "
     },
     {
       "type": "Input.Text",
       "id": "Matrícula",
-      "placeholder": "Matrícula"
+      "placeholder": "Plate"
     },
     {
       "type": "TextBlock",
-      "text": "Introduce tu modelo y marca: "
+      "text": "Introduce your car model and brand: "
     },
     {
       "type": "Input.Text",
       "id": "Modelo",
-      "placeholder": "Modelo y marca"
+      "placeholder": "Model and brand"
     },
     {
       "type": "TextBlock",
-      "text": "Introduce la fecha de tu carnet: "
+      "text": "Introduce your license date: "
     },
     {
       "type": "Input.Date",
-      "id": "Fecha"
-    }
-  ],
-  "actions": [
-    {
-      "type": "Action.Submit",
-      "title": "ENVIAR",
-      "data": {
-        "x": 1
-      }
+      "id": "Date"
     }
   ]
 }
