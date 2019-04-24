@@ -10,7 +10,7 @@ const LargeWeatherCard = require('./resources/LargeWeatherCard.json');
 const RestaurantCard = require('./resources/RestaurantCard.json');
 const SolitaireCard = require('./resources/SolitaireCard.json');
 const AccidentsCard = require('./resources/Siniestro.json');
-const InsuranceCard = require('./resources/Siniestro.json');
+const InsuranceCard = require('./resources/CreacionSeguro.json');
 
 // Create array of AdaptiveCard content, this will be used to send a random card to the user.
 const CARDS = [
@@ -51,47 +51,63 @@ class AdaptiveCardsBot {
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         if (context.activity.type === 'message') {
 			console.log(context, context.activity.text);
-			
-			const result = await nlpManager.process(context.activity.text);
-			const answer = result.score > threshold && result.answer ? result.answer : "Lo siento muchisimo pero no he entendido nada";
-
-			console.log(result, result.answer, answer);
-
-			if (result.intent === 'accidents') {
-				await context.sendActivity({
-					text: answer,
-					attachments: [CardFactory.adaptiveCard(AccidentsCard)]
-				});
-			}
-			else if (result.intent === 'new') {
-				await context.sendActivity({
-					text: answer,
-					attachments: [CardFactory.adaptiveCard(InsuranceCard)]
-				});
+			if (context.activity.text === undefined) {
+				console.log(context.activity.value);
+				if (context.activity.value.x === 0) {
+				    let buffer = 'Confirmamos sus datos:\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nNumero Afectados:'+ context.activity.value.NumeroAfectados +'\r\nLugar:'+ context.activity.value.Lugar +'\r\n  Gracias por confiar en nosotros.';
+				    await context.sendActivity({
+					    text: buffer
+				    });
+				}
+				else if (context.activity.value.x === 1) {
+				    let buffer = 'Confirmamos sus datos:\r\nNombre: '+ context.activity.value.Nombre +'\r\nApellidos:'+ context.activity.value.Apellidos +'\r\nDNI:'+ context.activity.value.DNI +'\r\nMatrícula:'+ context.activity.value.Matrícula +'\r\nModelo:'+ context.activity.value.Modelo +'\r\nFecha:'+ context.activity.value.Fecha +'\r\n  Gracias por confiar en nosotros.';
+				    await context.sendActivity({
+					    text: buffer
+				    });
+				}
 			}
 			else {
-				await context.sendActivity({
-					text: answer
-				});
-			}
-			/*
-			else if(answer === 'section1') {
-			  message = '';
-			}			
-			
-			else if(answer === 'section2') {
-			  message = '';
-			}
-			
-			else if(answer === 'section3') {
-			  message = '';
-			}
+				const result = await nlpManager.process(context.activity.text);
+				const answer = result.score > threshold && result.answer ? result.answer : "Lo siento muchisimo pero no he entendido nada";
 
-			else if(answer === 'section4') {
-			  message = '';
+				console.log(result, result.answer, answer);
+
+				if (result.intent === 'accidents') {
+					await context.sendActivity({
+						text: answer,
+						attachments: [CardFactory.adaptiveCard(AccidentsCard)]
+					});
+				}
+				else if (result.intent === 'seguro') {
+					await context.sendActivity({
+						text: answer,
+						attachments: [CardFactory.adaptiveCard(InsuranceCard)]
+					});
+				}
+				else {
+					await context.sendActivity({
+						text: answer
+					});
+				}
+				/*
+				else if(answer === 'section1') {
+				  message = '';
+				}			
+				
+				else if(answer === 'section2') {
+				  message = '';
+				}
+				
+				else if(answer === 'section3') {
+				  message = '';
+				}
+
+				else if(answer === 'section4') {
+				  message = '';
+				}
+				*/
+				//attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
 			}
-			*/
-			//attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
         } else {
             await context.sendActivity(`[${ context.activity.type } event detected]`);
         }

@@ -78,5 +78,14 @@
       "type": "Input.Date",
       "id": "Fecha"
     }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "ENVIAR",
+      "data": {
+        "x": 1
+      }
+    }
   ]
 }
