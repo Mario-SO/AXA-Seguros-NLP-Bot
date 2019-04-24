@@ -23,7 +23,7 @@ const { NlpManager } = require('node-nlp');
 const trainnlp = require('./train-nlp');
 
 const threshold = 0.5;
-const nlpManager = new NlpManager({ languages: ['en'] });
+const nlpManager = new NlpManager({ languages: ['es', 'en'] });
 
 /**
  * A bot that sends AdaptiveCards to the user when it receives a message.
@@ -52,11 +52,31 @@ class AdaptiveCardsBot {
 			const answer = result.score > threshold && result.answer ? result.answer : "Sorry, I don't understand";
 
 			console.log(result, result.answer, answer);
-            
-			// const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
-            await context.sendActivity({
-                text: answer
-            });
+
+			let message;
+			if (true) {
+				await context.sendActivity({
+					text: answer,
+					attachments: [CardFactory.adaptiveCard(ImageGalleryCard)]
+				});
+			}
+			/*
+			else if(answer === 'section1') {
+			  message = '';
+			}			
+			
+			else if(answer === 'section2') {
+			  message = '';
+			}
+			
+			else if(answer === 'section3') {
+			  message = '';
+			}
+
+			else if(answer === 'section4') {
+			  message = '';
+			}
+			*/
 			//attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
         } else {
             await context.sendActivity(`[${ context.activity.type } event detected]`);

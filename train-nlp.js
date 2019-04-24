@@ -28,6 +28,25 @@ module.exports = async function trainnlp(manager, say) {
     manager.load('./model.nlp');
     return;
   }
+  manager.addDocument('es', 'he tenido un accidente', 'accidents');
+  manager.addDocument('es', 'se ha roto el coche', 'accidents');
+  manager.addDocument('es', 'se ha roto la moto', 'accidents');
+  manager.addDocument('es', 'el coche está estropeado', 'accidents');
+  manager.addDocument('es', 'la moto está estropeada', 'accidents');
+  manager.addDocument('es', 'se ha roto la moto', 'accidents');
+  manager.addDocument('es', 'el coche no arranca', 'accidents');
+  manager.addDocument('es', 'la moto no arranca', 'accidents');
+  manager.addDocument('es', 'no funciona el coche', 'accidents');
+  manager.addDocument('es', 'el coche tiene una avería', 'accidents');
+  manager.addDocument('es', 'la moto tiene una avería', 'accidents');
+  manager.addDocument('es', 'el coche está averiado', 'accidents');
+  manager.addDocument('es', 'la moto no arranca', 'accidents');
+  manager.addDocument('es', 'he recibido un golpe', 'accidents');
+  manager.addDocument('es', 'me he golpeado en el coche', 'accidents');
+  
+  manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario:');
+  
+  
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');
   manager.addDocument('en', 'what is your personality', 'agent.acquaintance');
