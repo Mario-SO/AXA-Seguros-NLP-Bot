@@ -10,7 +10,7 @@ const LargeWeatherCard = require('./resources/LargeWeatherCard.json');
 const RestaurantCard = require('./resources/RestaurantCard.json');
 const SolitaireCard = require('./resources/SolitaireCard.json');
 const AccidentsCard = require('./resources/Siniestro.json');
-const InsuranceCard = require('./resources/Siniestro.json');
+const InsuranceCard = require('./resources/CreacionSeguro.json');
 
 // Create array of AdaptiveCard content, this will be used to send a random card to the user.
 const CARDS = [
@@ -19,8 +19,8 @@ const CARDS = [
     LargeWeatherCard,
     RestaurantCard,
     SolitaireCard,
-	AccidentsCard,
-	InsuranceCard
+		AccidentsCard,
+		InsuranceCard
 ];
 
 const { NlpManager } = require('node-nlp');
@@ -63,7 +63,7 @@ class AdaptiveCardsBot {
 					attachments: [CardFactory.adaptiveCard(AccidentsCard)]
 				});
 			}
-			else if (result.intent === 'new') {
+			else if (result.intent === 'seguro') {
 				await context.sendActivity({
 					text: answer,
 					attachments: [CardFactory.adaptiveCard(InsuranceCard)]
