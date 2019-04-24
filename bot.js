@@ -53,7 +53,7 @@ class AdaptiveCardsBot {
 			console.log(context, context.activity.text);
 			
 			const result = await nlpManager.process(context.activity.text);
-			const answer = result.score > threshold && result.answer ? result.answer : "Sorry, I don't understand";
+			const answer = result.score > threshold && result.answer ? result.answer : "Lo siento muchisimo pero no he entendido nada";
 
 			console.log(result, result.answer, answer);
 
