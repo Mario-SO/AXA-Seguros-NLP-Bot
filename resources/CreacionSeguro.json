@@ -1,0 +1,82 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Formulario para la creación de Seguros",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Nombre y apellidos",
+      "separator": true
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "width": 1,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Nombre",
+              "placeholder": "Nombre",
+              "size": "large"
+            }
+          ]
+        },
+        {
+          "width": 2,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Apellidos",
+              "placeholder": "Apellidos",
+              "size": "large"
+            }
+            ]
+        }
+        ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce tu DNI: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "DNI",
+      "placeholder": "DNI"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce tu matrícula: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Matrícula",
+      "placeholder": "Matrícula"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce tu modelo y marca: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Modelo",
+      "placeholder": "Modelo y marca"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce la fecha de tu carnet: "
+    },
+    {
+      "type": "Input.Date",
+      "id": "Fecha"
+    }
+  ]
+}

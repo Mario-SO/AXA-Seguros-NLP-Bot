@@ -1,0 +1,100 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Formulario para el caso de Siniestro",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Nombre y apellidos",
+      "separator": true
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "width": 1,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Nombre",
+              "placeholder": "Nombre",
+              "size": "large"
+            }
+          ]
+        },
+        {
+          "width": 2,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Text",
+              "id": "Apellidos",
+              "placeholder": "Apellidos",
+              "size": "large"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce tu DNI: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "DNI",
+      "placeholder": "DNI"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "width": 8,
+          "type": "Column",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "¿Cuantos afectados hay?"
+            }
+          ]
+        },
+        {
+          "width": 1,
+          "type": "Column",
+          "items": [
+            {
+              "type": "Input.Number",
+              "id": "NumeroAfectados"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce información del seguro: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Información",
+      "placeholder": "Información",
+      "isMultiline": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Introduce el lugar del incidente: "
+    },
+    {
+      "type": "Input.Text",
+      "id": "Lugar",
+      "placeholder": "Lugar del incidente"
+    }
+  ]
+}
