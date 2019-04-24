@@ -46,7 +46,6 @@ module.exports = async function trainnlp(manager, say) {
   
   manager.addAnswer('es', 'accidents', 'Vamos a gestionar el accidente, por favor, rellene el siguiente formulario:');
   
-  
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');
   manager.addDocument('en', 'what is your personality', 'agent.acquaintance');
