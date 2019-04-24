@@ -19,9 +19,22 @@ const CARDS = [
     SolitaireCard
 ];
 
+const { NlpManager } = require('node-nlp');
+const trainnlp = require('./train-nlp');
+
+const threshold = 0.5;
+const nlpManager = new NlpManager({ languages: ['en'] });
+
 /**
  * A bot that sends AdaptiveCards to the user when it receives a message.
  */
+function say(message) {
+// eslint-disable-next-line no-console
+    console.log(message);
+}
+
+trainnlp(nlpManager, say);
+
 class AdaptiveCardsBot {
     /**
      * Every conversation turn for our AdaptiveCardsBot will call this method.
@@ -29,14 +42,23 @@ class AdaptiveCardsBot {
      * request and response, with no stateful conversation.
      * @param turnContext A TurnContext instance containing all the data needed for processing this conversation turn.
      */
+	 
     async onTurn(context) {
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         if (context.activity.type === 'message') {
-            const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
+			console.log(context, context.activity.text);
+			
+			const result = await nlpManager.process(context.activity.text);
+			const answer = result.score > threshold && result.answer ? result.answer : "Sorry, I don't understand";
+
+			console.log(result, result.answer, answer);
+
+            
+			// const randomlySelectedCard = CARDS[Math.floor((Math.random() * CARDS.length - 1) + 1)];
             await context.sendActivity({
-                text: 'Here is an Adaptive Card:',
-                attachments: [CardFactory.adaptiveCard(randomlySelectedCard)]
+                text: answer
             });
+
         } else {
             await context.sendActivity(`[${ context.activity.type } event detected]`);
         }
